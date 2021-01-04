@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineFile | Home</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@700&display=swap" rel="stylesheet"> 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <!-- DataTables  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<body>
+<style>
+    input[type="text"]{
+        background: none;
+        border: none;
+    }
+    input[type="text"]:disabled{
+        background: none;
+        border: none;
+    }
+</style>
+    <div class="container h-100"></div>
+        <h1 class="text-center pt-5 mt-5 font-weight-bold h-100"><b>CineFile</b></h1>
+        <div class="d-flex justify-content-center text-center">
+            <h6 class="d-inline text-center justify-content-center pr-1 mr-1"><a href="admin.html">Admin login</a></h6>
+            &nbsp;&nbsp;
+            <h6 class="d-inline text-center justify-content-center pl-1 ml-1"><a href="add.html">Contribute</a></h6>
+        </div>
+        <br>
+        <p class="text-center">>  Movie buff community  <</p>
+        <div class="container d-flex justify-content-center">
+            <div class="table-resposive">
+                <table class="table table-striped" id="mainTable">
+                <thead>
+                    <tr class="table-primary">
+                        <th style="width: 40%;">Movie title</th>
+                        <th style="width: 20%;">Genre type</th>
+                        <th style="width: 40%;">Contribution</th>
+                    </tr>
+                </thead>
+                <br>
+                {% if movies|length == 0 %}
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="text-center">No values</td>
+                            </tr>
+                        </tbody>
+                {% endif %}
+                <tbody>
+                    {% for movie in movies %}
+                            <tr>
+                                <td data-search="{{movie.title}}" data-order="{{movie.title}}"><input type="text" name="title" id="title" class="form-control" value="{{movie.title}}" disabled></td>
+                                <td data-search="{{movie.genre}}" data-order="{{movie.genre}}"><input type="text" name="genre" id="genre" class="form-control" value="{{movie.genre}}" disabled></td>
+                                <td data-search="{{movie.human}}" data-order="{{movie.human}}"><input type="text" name="human" id="human" class="form-control" value="{{movie.human}}" disabled></td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function () {
+  $('#mainTable').DataTable({ 
+    "sDom": 'Rlfrtip',
+    "iDisplayLength": 5, 
+    "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+});
+});
+</script>
+</html>

@@ -1,0 +1,45 @@
+*{
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+body{
+    font-size: 25px;
+    background-image: url("poster.jpg");
+    -webkit-appearance: menulist;
+}
+
+h1, h3{
+    font-weight: 900;
+}
+
+a{
+    text-decoration: none;
+}
+
+table, th, td {
+    border: 1px solid black;
+    font-size: 15px;  
+    white-space: nowrap;
+}
+
+table, th, td input{
+    text-align: center;
+}
+
+#mainTable_wrapper{   
+    font-size: 15px;
+    padding: 2px;
+}
+
+#mainTable_filter input{
+    background: white;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+#mainTable_length select{
+    background: white;
+    margin-bottom: 5px;
+    padding: 2px;
+    padding-right: 15px;
+}
