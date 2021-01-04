@@ -13,7 +13,7 @@ database_file = "sqlite:///{}".format(os.path.join(project_dir, "movies.db"))
 app = Flask(__name__)
 app.secret_key = "123"
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = database_file
+app.config['SQLALCHEMY_DATABASE_URI'] = database_file
 app.config['DATABASE_URL'] = database_file
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '123'
