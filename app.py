@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "123"
 
 # app.config["SQLALCHEMY_DATABASE_URI"] = database_file
-app.config["DATABASE_URL"] = database_file
+app.config["DATABASE_URL"] = "postgres://qmcqivjqsmyrbx:24b7d20d1b3e270c938ddf7297a277c3a91fc12d1e445964194d026895e1577f@ec2-54-242-120-138.compute-"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
