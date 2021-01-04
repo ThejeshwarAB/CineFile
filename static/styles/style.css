@@ -43,3 +43,7 @@ table, th, td input{
     padding: 2px;
     padding-right: 15px;
 }
+
+.dev{
+    font-size: 15px;
+}
