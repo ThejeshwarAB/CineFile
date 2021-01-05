@@ -18,14 +18,14 @@ app.secret_key = "123"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '123'
 
-ENV = 'pro'
+ENV = 'prod'
 
 if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = database_file
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qmcqivjqsmyrbx:24b7d20d1b3e270c938ddf7297a277c3a91fc12d1e445964194d026895e1577f@ec2-54-242-120-138.compute-1.amazonaws.com:5432/dcfm38290mgo56'
+    app.config['DATABASE_URL'] = 'postgres://qmcqivjqsmyrbx:24b7d20d1b3e270c938ddf7297a277c3a91fc12d1e445964194d026895e1577f@ec2-54-242-120-138.compute-1.amazonaws.com:5432/dcfm38290mgo56'
 
 db = SQLAlchemy(app)
 
